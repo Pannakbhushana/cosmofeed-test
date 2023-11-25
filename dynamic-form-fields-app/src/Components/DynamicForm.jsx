@@ -13,15 +13,15 @@ const DynamicForm = () => {
     setData(newData);
   };
 
-  const handleChange = (ind, event) => {
+  const handleChange = (i, e) => {
     const newData = [...data];
-    newData[ind].value = event.target.value;
+    newData[i].value = e.target.value;
     setData(newData);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log( data.map((field) => field.value));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log( data.map((el) => el.value));
   };
 
   return (
