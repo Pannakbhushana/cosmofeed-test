@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 const DynamicForm = () => {
-  const [data, setData] = useState([{ value: '' }]);
+  const [data, setData] = useState([{ value: "" }]);
 
-  const handleAddField = () => {
-    setData([...data, { value: '' }]);
+  const handleAddInput = () => {
+    setData([...data, { value: "" }]);
   };
 
-  const handleRemoveField = (ind) => {
+  const handleRemoveInput = (ind) => {
     const newData = [...data];
     newData.splice(ind, 1);
     setData(newData);
@@ -36,15 +36,15 @@ const DynamicForm = () => {
             <h1>Dynamic Form Fields</h1>
 
         <form onSubmit={handleSubmit}>
-      {data.map((field, ind) => (
-        <div key={ind}>
+      {data.map((el, i) => (
+        <div key={i}>
           <input
             type="text"
             placeholder="Enter a value"
-            value={field.value}
-            onChange={(e) => handleChange(ind, e)}
+            value={el.value}
+            onChange={(e) => handleChange(i, e)}
           />
-          <button type="button" onClick={() => handleRemoveField(ind)}>
+          <button type="button" onClick={() => handleRemoveInput(i)}>
             Remove
           </button>
           <br />
@@ -52,8 +52,8 @@ const DynamicForm = () => {
         </div>
         
       ))}
-      <button type="button" onClick={handleAddField}>
-        Add Field
+      <button type="button" onClick={handleAddInput}>
+        Add Input
       </button>
       <button type="submit">Submit</button>
     </form>
